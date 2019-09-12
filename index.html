@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SystemJS Race Condition bug</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "foo": "/foo.js"
+      }
+    }
+  </script>
+  <script type="systemjs-module" src="import:foo"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.1.0/dist/system.js"></script>
+  <!-- If you move the script to be below system.js, everything works fine -->
+  <!-- <script type="systemjs-module" src="import:foo"></script> -->
+</head>
+<body>
+</body>
+</html>
